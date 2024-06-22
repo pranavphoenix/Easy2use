@@ -1,10 +1,10 @@
 create a docker container from image
 
 ```bash
-sudo docker run -it -v /path/to/folder/where/container/to/be/creaated:/workspace/ --gpus '"device=3"' --shm-size 128gb <image-name>`.
+sudo docker run -it -v </path/to/folder/where/container/to/be/creaated>:/workspace/ --gpus '"device=<3>"' --shm-size <128>gb <image-name>`.
 ```
 ```bash
-sudo docker run -it -v /path/to/folder/where/container/to/be/creaated:/workspace/ --gpus '"device=3"' --shm-size 128gb --network host <image-name>
+sudo docker run -it -v </path/to/folder/where/container/to/be/creaated>:/workspace/ --gpus '"device=<3>"' --shm-size <128>gb --network host <image-name>
 ```
 Run jupyter notebook in docker
 ```bash
@@ -19,7 +19,7 @@ remember the ssh password
 ssh-keygen -t rsa -b 4096
 ```
 ```bash
-ssh-copy-id user@ip
+ssh-copy-id <user@ip>
 ```
 Check which GPU a docker container is using
 ```bash
@@ -27,7 +27,7 @@ docker inspect <container_id> --format='{{.HostConfig.DeviceRequests}}'
 ```
 Check the size of each subfolder in a folder
 ```bash
-du -h -d1 /path/to/folder/
+du -h -d1 </path/to/folder/>
 ```
 
 
