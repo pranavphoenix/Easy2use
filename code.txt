@@ -1,3 +1,6 @@
 create a docker container from image
 sudo docker run -it -v /path/to/folder/where/container/to/be/creaated:/workspace/ --gpus '"device=3"' --shm-size 128gb <image-name>
+
+load docker container
+docker load -i <file.tar>
                        
