@@ -29,6 +29,17 @@ Check the size of each subfolder in a folder
 ```bash
 du -h -d1 </path/to/folder/>
 ```
+Run a code in a single node
+```bash
+# !/bin/bash
+set -x
+torchrun \
+    --nnodes=1 \
+    --nproc_per_node=<NUM_GPUS> \
+    --node_rank=0 \
+<file.py + args> 
+
+```
 
 
 
