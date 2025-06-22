@@ -29,7 +29,7 @@ Check the size of each subfolder in a folder
 ```bash
 du -h -d1 </path/to/folder/>
 ```
-Run a code in a single node
+Run a code in a single node using bash file.sh
 ```bash
 # !/bin/bash
 set -x
@@ -38,7 +38,29 @@ torchrun \
     --nproc_per_node=<NUM_GPUS> \
     --node_rank=0 \
 <file.py + args> 
+```
+Run a code in multiple nodes using sbatch file.sh
+```bash
+#!/bin/bash
+#SBATCH --job-name=<Job name>
+#SBATCH --output=<output_log.log>         
+#SBATCH --nodes=<no. of nodes>
+#SBATCH --ntasks-per-node=<gpu per node>                      
+#SBATCH --gres=gpu:<gpu per node>
+#SBATCH --exclusive                  
 
+
+# Activate virtual environment if needed
+# source ~/.bashrc
+# source /path/to/venv/bin/activate
+
+
+
+# Torchrun command to launch distributed job
+torchrun \
+    --nnodes=4 \
+    --nproc_per_node=1 \
+    your_script.py --your_args value
 ```
 
 
